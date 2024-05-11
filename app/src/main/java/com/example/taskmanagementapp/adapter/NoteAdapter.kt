@@ -53,4 +53,15 @@ class NoteAdapter(
         return dataSet.size
     }
 
+    // Function to update the dataset with filtered data
+    fun updateList(filteredDataSet: List<NoteModel>) {
+        dataSet = filteredDataSet
+        notifyDataSetChanged()
+    }
+
+    // Function to reset dataset to original data
+    fun resetList() {
+        dataSet = originalDataSet
+        notifyDataSetChanged()
+    }
 }
