@@ -38,12 +38,22 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <!-- Add Priority TextView -->
+        <!-- Priority TextView -->
         <TextView
             android:id="@+id/text_priority"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Priority : "
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Date TextView -->
+        <TextView
+            android:id="@+id/text_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date: "
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />

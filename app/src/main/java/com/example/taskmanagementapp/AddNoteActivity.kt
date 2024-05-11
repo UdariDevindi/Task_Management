@@ -1,5 +1,6 @@
 package com.example.taskmanagementapp
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -7,14 +8,18 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.taskmanagementapp.db.DBOpenHelper
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputLayout
+import java.text.SimpleDateFormat
+import java.util.*
 
 class AddNoteActivity : AppCompatActivity() {
 
     private lateinit var etTitle: TextInputLayout
     private lateinit var etDescription: TextInputLayout
     private lateinit var etPriority: TextInputLayout
+    private lateinit var etDate: TextInputLayout
     private lateinit var fabSend: FloatingActionButton
     private val dbOpenHelper = DBOpenHelper(this)
+    private var selectedDate: Calendar = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,11 +28,40 @@ class AddNoteActivity : AppCompatActivity() {
         etTitle = findViewById(R.id.et_title)
         etDescription = findViewById(R.id.et_description)
         etPriority = findViewById(R.id.et_priority)
+        etDate = findViewById(R.id.et_date)
         fabSend = findViewById(R.id.fab_send)
+
+        // Set up click listener for date input field
+        etDate.setOnClickListener {
+            showDatePicker()
+        }
 
         fabSend.setOnClickListener {
             fabSendData()
         }
+    }
+
+    private fun showDatePicker() {
+        val datePicker = DatePickerDialog(
+            this,
+            { _, year, month, day ->
+                selectedDate.set(Calendar.YEAR, year)
+                selectedDate.set(Calendar.MONTH, month)
+                selectedDate.set(Calendar.DAY_OF_MONTH, day)
+
+                // Format the selected date
+                val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                val formattedDate = dateFormat.format(selectedDate.time)
+
+                // Set the formatted date to the date TextInputEditText
+                etDate.editText?.setText(formattedDate)
+            },
+            selectedDate.get(Calendar.YEAR),
+            selectedDate.get(Calendar.MONTH),
+            selectedDate.get(Calendar.DAY_OF_MONTH)
+        )
+        datePicker.datePicker.minDate = System.currentTimeMillis() - 1000
+        datePicker.show()
     }
 
     private fun fabSendData() {
@@ -60,10 +94,13 @@ class AddNoteActivity : AppCompatActivity() {
             return
         }
 
-        dbOpenHelper.addNote(title, description, priorityValue)
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val formattedDate = dateFormat.format(selectedDate.time)
+
+        dbOpenHelper.addNote(title, description, priorityValue, formattedDate)
         Toast.makeText(this, "Added", Toast.LENGTH_SHORT).show()
         val intentToMainActivity = Intent(this, MainActivity::class.java)
         startActivity(intentToMainActivity)
         finish()
-    }
-}
+    }}
+
