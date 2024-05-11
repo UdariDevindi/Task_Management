@@ -9,7 +9,6 @@
     app:strokeColor="@color/grey"
     app:strokeWidth="1dp">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,8 +16,6 @@
         android:orientation="vertical"
         android:padding="16dp"
         app:strokeWidth="0dp">
-
-
 
         <TextView
             android:id="@+id/text_title"
@@ -41,12 +38,21 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
+        <!-- Add Priority TextView -->
+        <TextView
+            android:id="@+id/text_priority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Priority : "
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal">
-
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_edit"
@@ -59,10 +65,9 @@
                 android:drawableTint="@color/white"
                 android:focusable="true"
                 android:text="Edit"
-                android:textColor="@color/white"
                 android:textAllCaps="false"
+                android:textColor="@color/white"
                 app:backgroundTint="#005563" />
-
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_delete"
@@ -79,10 +84,8 @@
                 android:textColor="@color/white"
                 app:backgroundTint="#AC221B" />
 
-
         </LinearLayout>
 
     </LinearLayout>
-
 
 </com.google.android.material.card.MaterialCardView>
