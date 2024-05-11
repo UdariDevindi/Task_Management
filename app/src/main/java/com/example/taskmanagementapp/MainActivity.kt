@@ -28,17 +28,17 @@ class MainActivity : AppCompatActivity() {
         mainRecyclerView = findViewById(R.id.main_recycler_view)
         fabCreate = findViewById(R.id.fab_create)
 
-        myDataset = dbOpenHelper.readNotes()
+        myDataset = dbOpenHelper.readNotes().sortedBy { it.priority }.toMutableList()
 
         mainRecyclerView.adapter = NoteAdapter(this, myDataset)
         mainRecyclerView.setHasFixedSize(true)
-
 
         fabCreate.setOnClickListener {
             val intentToAddNoteActivity = Intent(this, AddNoteActivity::class.java)
             startActivity(intentToAddNoteActivity)
             finish()
         }
+    }
+
 
     }
-}
