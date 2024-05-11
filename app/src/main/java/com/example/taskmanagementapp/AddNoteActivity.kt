@@ -12,7 +12,7 @@ class AddNoteActivity : AppCompatActivity() {
 
     private lateinit var etTitle: TextInputLayout
     private lateinit var etDescription: TextInputLayout
-    private lateinit var etPriority: TextInputLayout // Added reference to priority TextInputLayout
+    private lateinit var etPriority: TextInputLayout
     private lateinit var fabSend: FloatingActionButton
     private val dbOpenHelper = DBOpenHelper(this)
 
@@ -22,7 +22,7 @@ class AddNoteActivity : AppCompatActivity() {
 
         etTitle = findViewById(R.id.et_title)
         etDescription = findViewById(R.id.et_description)
-        etPriority = findViewById(R.id.et_priority) // Initialize priority TextInputLayout
+        etPriority = findViewById(R.id.et_priority)
         fabSend = findViewById(R.id.fab_send)
 
         fabSend.setOnClickListener {
@@ -33,7 +33,7 @@ class AddNoteActivity : AppCompatActivity() {
     private fun fabSendData() {
         val title = etTitle.editText?.text.toString()
         val description = etDescription.editText?.text.toString()
-        val priority = etPriority.editText?.text.toString() // Get priority input
+        val priority = etPriority.editText?.text.toString()
 
         if (title.isEmpty()) {
             etTitle.error = "Please enter your Note"
@@ -53,7 +53,14 @@ class AddNoteActivity : AppCompatActivity() {
             return
         }
 
-        dbOpenHelper.addNote(title, description, priority.toInt())
+        val priorityValue = priority.toIntOrNull()
+        if (priorityValue == null || priorityValue < 1 || priorityValue > 3) {
+            etPriority.error = "Priority must be a number between 1 and 3"
+            etPriority.requestFocus()
+            return
+        }
+
+        dbOpenHelper.addNote(title, description, priorityValue)
         Toast.makeText(this, "Added", Toast.LENGTH_SHORT).show()
         val intentToMainActivity = Intent(this, MainActivity::class.java)
         startActivity(intentToMainActivity)
