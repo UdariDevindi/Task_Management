@@ -35,7 +35,7 @@ class AddNoteActivity : AppCompatActivity() {
     private fun fabSendData() {
 
         if (etTitle.editText?.text.toString().isEmpty()) {
-            etTitle.error = "Please enter your Title"
+            etTitle.error = "Please enter your Note"
             etTitle.requestFocus()
             return
         }

@@ -13,8 +13,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#B4D2DF"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        app:strokeWidth="0dp">
+
+
 
         <TextView
             android:id="@+id/text_title"
@@ -32,7 +36,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:fontFamily="cursive"
             android:text="I am Description"
             android:textColor="@color/grey"
             android:textSize="18sp"
@@ -56,7 +59,9 @@
                 android:drawableTint="@color/white"
                 android:focusable="true"
                 android:text="Edit"
-                android:textAllCaps="false" />
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                app:backgroundTint="#005563" />
 
 
             <com.google.android.material.button.MaterialButton
@@ -67,10 +72,12 @@
                 android:layout_marginStart="10dp"
                 android:clickable="true"
                 android:drawableEnd="@drawable/ic_baseline_delete_24"
-                android:drawableTint="@color/grey"
+                android:drawableTint="@color/white"
                 android:focusable="true"
                 android:text="Delete"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:backgroundTint="#AC221B" />
 
 
         </LinearLayout>

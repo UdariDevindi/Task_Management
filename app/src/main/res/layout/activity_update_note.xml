@@ -4,8 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".UpdateNoteActivity">
 
+    <TextView
+        android:id="@+id/tv_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Update Note"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_start"
@@ -21,55 +35,58 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="30dp" />
 
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_updated_title"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:hint="Enter updated Title"
-        android:textColorHint="@color/grey"
+        android:layout_marginTop="212dp"
+        android:hint="Enter updated Note Title"
+        android:textColorHint="@color/white"
         app:endIconMode="clear_text"
         app:errorEnabled="true"
-        app:hintTextColor="@color/black"
+        app:hintTextColor="@color/white"
         app:layout_constraintEnd_toStartOf="@id/guideline_end"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/guideline_start"
         app:layout_constraintTop_toTopOf="parent"
         app:startIconDrawable="@drawable/ic_baseline_title_24"
-        app:startIconTint="@color/grey">
+        app:startIconTint="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapWords|textShortMessage"
-            android:maxLines="2" />
+            android:maxLines="2"
+            android:textColor="@color/white"/>
 
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_updated_description"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:hint="Enter updated Description"
-        android:textColorHint="@color/grey"
+        android:textColorHint="@color/white"
         app:endIconMode="clear_text"
         app:errorEnabled="true"
-        app:hintTextColor="@color/black"
+        app:hintTextColor="@color/white"
         app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@id/et_updated_title"
         app:startIconDrawable="@drawable/ic_baseline_description_24"
-        app:startIconTint="@color/grey">
+        app:startIconTint="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textCapSentences|textLongMessage|textMultiLine"
-            android:maxLines="5" />
+            android:maxLines="5"
+            android:textColor="@color/white"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
