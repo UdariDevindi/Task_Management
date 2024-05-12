@@ -1,6 +1,6 @@
 package com.example.taskmanagementapp.utils
 
-import com.example.taskmanagementapp.UpdateNoteActivity
+
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Toast
 import com.example.taskmanagementapp.MainActivity
 import com.example.taskmanagementapp.R
+import com.example.taskmanagementapp.UpdateNoteActivity
 import com.example.taskmanagementapp.db.DBOpenHelper
 import com.example.taskmanagementapp.model.NoteModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder

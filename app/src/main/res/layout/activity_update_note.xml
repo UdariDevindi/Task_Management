@@ -135,10 +135,12 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:hint="Enter updated Date"
         android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/black"
         app:boxStrokeErrorColor="@color/error_icon_color"
+        app:counterTextColor="@color/black"
         app:cursorErrorColor="@color/error_icon_color"
         app:endIconMode="clear_text"
         app:errorEnabled="true"
@@ -153,12 +155,15 @@
         app:startIconTint="@color/black">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_updated_date_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"
-            android:textColor="@color/black"/>
+            android:inputType="none"
+            android:focusable="false"
+            android:textColor="@color/black" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_update"

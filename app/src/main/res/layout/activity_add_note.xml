@@ -129,12 +129,13 @@
             android:textColor="@color/black" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_date"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:hint="Select Date"
         android:textColorHint="@color/black"
         app:boxStrokeErrorColor="@color/error_icon_color"
@@ -144,8 +145,9 @@
         app:errorIconTint="@color/error_icon_color"
         app:errorTextColor="#FF0E00"
         app:hintTextColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@id/et_priority"
-        app:layout_constraintStart_toStartOf="@id/et_priority"
+        app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@id/et_priority"
         app:startIconDrawable="@drawable/ic_baseline_calendar_today_24"
         app:startIconTint="@color/black">
@@ -154,10 +156,14 @@
             android:id="@+id/et_date_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"
+            android:focusable="false"
+            android:inputType="none"
             android:textColor="@color/black" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_send"
@@ -170,6 +176,5 @@
         app:elevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
